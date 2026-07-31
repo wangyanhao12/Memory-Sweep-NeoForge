@@ -1,0 +1,30 @@
+# neoforge.mods.toml —— 模组元数据描述文件
+# 占位符(${...})在构建时由 build.gradle 中的 generateModMetadata 任务替换为 gradle.properties 里的实际值。
+
+license="${mod_license}"
+
+[[mods]] #mandatory
+
+modId="${mod_id}" #mandatory
+version="${mod_version}" #mandatory
+displayName="${mod_name}" #mandatory
+
+authors="Your Name"
+
+description='''
+自动清理服务器内存的模组:支持定时清理与基于内存使用率的智能清理,并提供 /memorysweep 指令手动清理。
+'''
+
+[[dependencies.${mod_id}]] #optional
+    modId="neoforge" #mandatory
+    type="required" #mandatory
+    versionRange="[${neo_version},)" #mandatory
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="SERVER"
